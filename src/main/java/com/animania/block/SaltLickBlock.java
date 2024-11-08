@@ -1,5 +1,6 @@
 package com.animania.block;
 
+import com.animania.AnimaniaConfig;
 import com.animania.block.entity.SaltLickBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -24,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 public class SaltLickBlock extends BaseEntityBlock {
     public static final MapCodec<SaltLickBlock> CODEC = simpleCodec(SaltLickBlock::new);
 
-    private static final VoxelShape SHAPE = Shapes.box(0.1875D, 0, 0.1875D, 0.8125D, 0.25D, 0.8125D);
+    private static final VoxelShape SHAPE = Shapes.box(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.25D, 0.8125D);
 
     public SaltLickBlock(Properties properties) {
         super(properties);
@@ -38,11 +39,21 @@ public class SaltLickBlock extends BaseEntityBlock {
     // TODO: Decrease salt lick size when used
     @Override
     protected @NotNull VoxelShape getCollisionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return SHAPE;
+        return getVoxelShape(level, pos);
     }
 
     @Override
     protected @NotNull VoxelShape getVisualShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
+        return getVoxelShape(level, pos);
+    }
+
+    @NotNull
+    private VoxelShape getVoxelShape(@NotNull BlockGetter level, @NotNull BlockPos pos) {
+        BlockEntity be = level.getBlockEntity(pos);
+        if (be instanceof SaltLickBlockEntity) {
+            double usesLeft = ((SaltLickBlockEntity) be).getUsesLeft() / (double) AnimaniaConfig.saltLickMaxUses;
+            return Shapes.box(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.625D * usesLeft, 0.8125D);
+        }
         return SHAPE;
     }
 

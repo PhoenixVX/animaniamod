@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.fml.ModList;
 import org.jetbrains.annotations.NotNull;
 
 public class MudBlock extends Block {
@@ -35,6 +36,8 @@ public class MudBlock extends Block {
     protected void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         super.randomTick(state, level, pos, random);
 
-        // TODO: Implement random particle display
+        if (ModList.get().isLoaded("animania_farm")) {
+            // TODO: Implement random particle display
+        }
     }
 }

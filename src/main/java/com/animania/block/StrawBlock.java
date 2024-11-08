@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 
 public class StrawBlock extends CarpetBlock {
@@ -33,17 +34,15 @@ public class StrawBlock extends CarpetBlock {
         return VISUAL_SHAPE;
     }
 
-    // TODO: Straw block should not be placeable on glass, canSurvive is probably bugged
     @Override
     protected boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
         BlockPos belowPos = pos.below();
         BlockState belowState = level.getBlockState(belowPos);
 
         boolean isFullBlockBelow = belowState.isCollisionShapeFullBlock(level, belowPos);
-        boolean isOpaqueBlockBelow = !belowState.isSolidRender(level, belowPos);
-        // TODO: canStay probably shouldn't be checked here.
-        boolean canStay = !level.getBlockState(belowPos).isAir();
+        boolean isOpaqueBlockBelow = !belowState.is(Tags.Blocks.GLASS_BLOCKS);
+        boolean canStay = !level.isEmptyBlock(belowPos);
 
-        return belowState.is(AnimaniaBlocks.STRAW_BLOCK.get()) || !isFullBlockBelow || !isOpaqueBlockBelow || canStay;
+        return belowState.is(AnimaniaBlocks.STRAW_BLOCK.get()) || (isFullBlockBelow && isOpaqueBlockBelow && canStay);
     }
 }
