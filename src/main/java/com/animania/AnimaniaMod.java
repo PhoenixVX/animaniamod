@@ -23,6 +23,7 @@ public class AnimaniaMod {
 
         AnimaniaBlocks.BLOCKS.register(modEventBus);
         AnimaniaItems.ITEMS.register(modEventBus);
+        AnimaniaItems.CREATIVE_MODE_TABS.register(modEventBus);
         AnimaniaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
 
         modEventBus.addListener(AnimaniaDataGenerators::gatherData);
