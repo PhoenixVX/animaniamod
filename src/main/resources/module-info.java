@@ -1,0 +1,3 @@
+module animania {
+    exports animania;
+}
