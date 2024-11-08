@@ -15,6 +15,7 @@ public class AnimaniaItems {
     // Animania base items
     public static final Supplier<Item> MUD_BLOCK_ITEM = registerBlockItem("mud_block", AnimaniaBlocks.MUD_BLOCK, new Item.Properties());
     public static final Supplier<Item> STRAW_BLOCK_ITEM = registerBlockItem("straw_block", AnimaniaBlocks.STRAW_BLOCK, new Item.Properties());
+    public static final Supplier<Item> SALT_LICK_BLOCK_ITEM = registerBlockItem("salt_lick_block", AnimaniaBlocks.SALT_LICK_BLOCK, new Item.Properties());
 
     private static Supplier<Item> registerBlockItem(String name, Supplier<Block> block, Item.Properties properties) {
         return ITEMS.register(name, () -> new BlockItem(block.get(), properties));

@@ -14,6 +14,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class AnimaniaSaltLickBlock extends BaseEntityBlock {
+    public static final MapCodec<AnimaniaSaltLickBlock> CODEC = simpleCodec(AnimaniaSaltLickBlock::new);
+
     private static final VoxelShape SHAPE = Shapes.box(0.1875D, 0, 0.1875D, 0.8125D, 0.25D, 0.8125D);
 
     public AnimaniaSaltLickBlock(Properties properties) {
@@ -22,7 +24,7 @@ public class AnimaniaSaltLickBlock extends BaseEntityBlock {
 
     @Override
     protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
-        return null;
+        return CODEC;
     }
 
     // TODO: Decrease salt lick size when used

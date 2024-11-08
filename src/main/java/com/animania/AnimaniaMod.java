@@ -1,6 +1,7 @@
 package com.animania;
 
 import com.animania.block.AnimaniaBlocks;
+import com.animania.block.entity.AnimaniaBlockEntityTypes;
 import com.animania.data.AnimaniaDataGenerators;
 import com.animania.item.AnimaniaItems;
 import com.mojang.logging.LogUtils;
@@ -22,6 +23,7 @@ public class AnimaniaMod {
 
         AnimaniaBlocks.BLOCKS.register(modEventBus);
         AnimaniaItems.ITEMS.register(modEventBus);
+        AnimaniaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
 
         modEventBus.addListener(AnimaniaDataGenerators::gatherData);
     }

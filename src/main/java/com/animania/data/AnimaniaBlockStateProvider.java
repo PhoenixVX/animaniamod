@@ -19,6 +19,7 @@ public class AnimaniaBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         createCube("mud_block", AnimaniaBlocks.MUD_BLOCK.get());
         createStrawBlock("straw_block", AnimaniaBlocks.STRAW_BLOCK.get());
+        createCube("salt_lick_block", AnimaniaBlocks.SALT_LICK_BLOCK.get());
     }
 
     private void createCube(String name, @NotNull Block block) {
