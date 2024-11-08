@@ -13,9 +13,9 @@ public class AnimaniaBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(AnimaniaMod.MOD_ID);
 
     // Animania base blocks
-    public static final Supplier<Block> MUD_BLOCK = registerBlock("mud_block", AnimaniaMudBlock::new, BlockBehaviour.Properties.of().strength(1.0F, 1.0F).speedFactor(0.6F).sound(SoundType.SLIME_BLOCK).randomTicks());
-    public static final Supplier<Block> STRAW_BLOCK = registerBlock("straw_block", AnimaniaStrawBlock::new, BlockBehaviour.Properties.of().sound(SoundType.GRASS).noOcclusion());
-    public static final Supplier<Block> SALT_LICK_BLOCK = registerBlock("salt_lick_block", AnimaniaSaltLickBlock::new, BlockBehaviour.Properties.of().strength(1.2F, 1.7F).noOcclusion());
+    public static final Supplier<Block> MUD_BLOCK = registerBlock("mud_block", MudBlock::new, BlockBehaviour.Properties.of().strength(1.0F, 1.0F).speedFactor(0.6F).sound(SoundType.SLIME_BLOCK).randomTicks());
+    public static final Supplier<Block> STRAW_BLOCK = registerBlock("straw_block", StrawBlock::new, BlockBehaviour.Properties.of().sound(SoundType.GRASS).noOcclusion());
+    public static final Supplier<Block> SALT_LICK_BLOCK = registerBlock("salt_lick_block", SaltLickBlock::new, BlockBehaviour.Properties.of().strength(1.2F, 1.7F).noOcclusion());
 
     public static <B extends Block> Supplier<B> registerBlock(String name, Function<BlockBehaviour.Properties, B> block, BlockBehaviour.Properties properties) {
         return BLOCKS.registerBlock(name, block, properties);

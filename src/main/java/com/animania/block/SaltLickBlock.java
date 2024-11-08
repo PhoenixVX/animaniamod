@@ -1,6 +1,6 @@
 package com.animania.block;
 
-import com.animania.block.entity.AnimaniaSaltLickBlockEntity;
+import com.animania.block.entity.SaltLickBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
@@ -13,12 +13,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class AnimaniaSaltLickBlock extends BaseEntityBlock {
-    public static final MapCodec<AnimaniaSaltLickBlock> CODEC = simpleCodec(AnimaniaSaltLickBlock::new);
+public class SaltLickBlock extends BaseEntityBlock {
+    public static final MapCodec<SaltLickBlock> CODEC = simpleCodec(SaltLickBlock::new);
 
     private static final VoxelShape SHAPE = Shapes.box(0.1875D, 0, 0.1875D, 0.8125D, 0.25D, 0.8125D);
 
-    public AnimaniaSaltLickBlock(Properties properties) {
+    public SaltLickBlock(Properties properties) {
         super(properties);
     }
 
@@ -40,6 +40,6 @@ public class AnimaniaSaltLickBlock extends BaseEntityBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
-        return new AnimaniaSaltLickBlockEntity(pos, state);
+        return new SaltLickBlockEntity(pos, state);
     }
 }

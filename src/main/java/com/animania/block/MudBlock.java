@@ -12,10 +12,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
 // TODO: Implement random particle display
-public class AnimaniaMudBlock extends Block {
+public class MudBlock extends Block {
     private static final VoxelShape SHAPE = Shapes.box(0.0D, 0.0D, 0.0D, 1.0D, 0.88D, 1.0D);
 
-    public AnimaniaMudBlock(Properties properties) {
+    public MudBlock(Properties properties) {
         super(properties);
     }
 

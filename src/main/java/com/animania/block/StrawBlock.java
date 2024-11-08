@@ -11,10 +11,10 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class AnimaniaStrawBlock extends CarpetBlock {
+public class StrawBlock extends CarpetBlock {
     private static final VoxelShape VISUAL_SHAPE = Shapes.box(0.0D, 0.0D, 0.0D, 1.0D, 0.002D, 1.0D);
 
-    public AnimaniaStrawBlock(Properties properties) {
+    public StrawBlock(Properties properties) {
         super(properties);
     }
 
