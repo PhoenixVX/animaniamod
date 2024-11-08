@@ -13,5 +13,6 @@ public class AnimaniaDataGenerators {
 
         // Register all data generators
         generator.addProvider(true, new AnimaniaBlockStateProvider(output, existingFileHelper));
+        generator.addProvider(true, new AnimaniaItemModelProvider(output, existingFileHelper));
     }
 }

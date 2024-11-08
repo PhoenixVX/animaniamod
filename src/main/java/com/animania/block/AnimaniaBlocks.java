@@ -13,5 +13,5 @@ public class AnimaniaBlocks {
 
     // Animania base blocks
     public static final Supplier<Block> MUD_BLOCK = BLOCKS.registerBlock("mud_block", AnimaniaMudBlock::new, BlockBehaviour.Properties.of().strength(1.0F, 1.0F));
-    public static final Supplier<Block> STRAW_BLOCK = BLOCKS.registerBlock("straw_block", AnimaniaStrawBlock::new, BlockBehaviour.Properties.of().sound(SoundType.GRASS));
+    public static final Supplier<Block> STRAW_BLOCK = BLOCKS.registerBlock("straw_block", AnimaniaStrawBlock::new, BlockBehaviour.Properties.of().sound(SoundType.GRASS).noOcclusion());
 }

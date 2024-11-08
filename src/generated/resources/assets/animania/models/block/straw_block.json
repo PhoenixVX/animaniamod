@@ -1,3 +1,8 @@
 {
-  "parent": "minecraft:block/carpet"
+  "parent": "minecraft:block/carpet",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "animania:block/straw_block",
+    "wool": "animania:block/straw_block"
+  }
 }
