@@ -1,5 +1,6 @@
 package com.animania.block.entity;
 
+import com.animania.AnimaniaConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -8,8 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
 public class SaltLickBlockEntity extends BlockEntity {
-    // TODO: Move value to config
-    private int usesLeft = 200;
+    private int usesLeft = AnimaniaConfig.saltLickMaxUses;
 
     public SaltLickBlockEntity(BlockPos pos, BlockState blockState) {
         super(AnimaniaBlockEntityTypes.SALT_LICK_BLOCK_ENTITY.get(), pos, blockState);
