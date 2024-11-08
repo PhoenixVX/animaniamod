@@ -19,7 +19,11 @@ public class AnimaniaItemModelProvider extends ItemModelProvider {
         for (DeferredHolder<Item, ? extends Item> holder : AnimaniaItems.ITEMS.getEntries()) {
             Item item = holder.get();
             if (item instanceof BlockItem blockItem) {
-                simpleBlockItem(blockItem.getBlock());
+                if (holder.equals(AnimaniaItems.SALT_LICK_BLOCK_ITEM)) {
+                    withExistingParent("salt_lick_block", "item/generated").texture("layer0", AnimaniaMod.getId("item/salt_lick"));
+                } else {
+                    simpleBlockItem(blockItem.getBlock());
+                }
             }
         }
     }

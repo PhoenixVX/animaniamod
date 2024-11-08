@@ -19,7 +19,7 @@ public class AnimaniaBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         createCube("mud_block", AnimaniaBlocks.MUD_BLOCK.get());
         createStrawBlock("straw_block", AnimaniaBlocks.STRAW_BLOCK.get());
-        createCube("salt_lick_block", AnimaniaBlocks.SALT_LICK_BLOCK.get());
+        createSaltLickBlock("salt_lick_block", AnimaniaBlocks.SALT_LICK_BLOCK.get());
     }
 
     private void createCube(String name, @NotNull Block block) {
@@ -35,5 +35,11 @@ public class AnimaniaBlockStateProvider extends BlockStateProvider {
                 .texture("particle", "animania:block/" + name)
                 .renderType("minecraft:cutout");
         simpleBlock(block, strawBlockModel);
+    }
+
+    private void createSaltLickBlock(String name, @NotNull Block block) {
+        ModelFile cube = models().cubeAll(name, ResourceLocation.fromNamespaceAndPath("minecraft","block/stone"))
+                .texture("particle", AnimaniaMod.getId("item/salt_lick"));
+        simpleBlock(block, cube);
     }
 }

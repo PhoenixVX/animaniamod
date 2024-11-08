@@ -1,7 +1,7 @@
-// 1.21.1	2024-11-07T18:30:49.501457027	Block States: animania
+// 1.21.1	2024-11-07T19:24:36.913584731	Block States: animania
 a53fa85207e6a31317899dc52c78613e2a49d8b7 assets/animania/blockstates/mud_block.json
 7bd936e4411a2b8b491148a7dc91f04a226b9bb7 assets/animania/blockstates/salt_lick_block.json
 d225dd7f5bb66395fc61735af1f04c6ac81ae3bf assets/animania/blockstates/straw_block.json
 68617c54dfaeeb057776b3bd2e8cd7fab03dbc19 assets/animania/models/block/mud_block.json
-bf05d1f714f31909ff849f48c6385b4e67a5a0f9 assets/animania/models/block/salt_lick_block.json
+a9e261e2905d7f3a7e426ab50d9ea3544ad16cca assets/animania/models/block/salt_lick_block.json
 519bbf146bae95f0fd9b985342f6a22448f8c23a assets/animania/models/block/straw_block.json
