@@ -2,5 +2,6 @@
   "itemGroup.animania_entities": "Animania Entities",
   "itemGroup.animania_resources": "Animania Resources",
   "block.animania.mud_block": "Mud Block",
-  "block.animania.straw_block": "Straw Block"
+  "block.animania.straw_block": "Straw Block",
+  "block.animania.salt_lick_block": "Salt Lick"
 }

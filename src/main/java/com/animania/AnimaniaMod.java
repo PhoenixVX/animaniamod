@@ -18,9 +18,9 @@ public class AnimaniaMod {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public AnimaniaMod(IEventBus modEventBus, ModContainer modContainer) {
-        // Initialize all registries
         modEventBus.addListener(this::commonSetup);
 
+        // Initialize all registries
         AnimaniaBlocks.BLOCKS.register(modEventBus);
         AnimaniaItems.ITEMS.register(modEventBus);
         AnimaniaItems.CREATIVE_MODE_TABS.register(modEventBus);
