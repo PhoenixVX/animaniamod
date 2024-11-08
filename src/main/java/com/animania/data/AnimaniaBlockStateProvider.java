@@ -23,23 +23,24 @@ public class AnimaniaBlockStateProvider extends BlockStateProvider {
     }
 
     private void createCube(String name, @NotNull Block block) {
-        ResourceLocation textureLocation = AnimaniaMod.getId("block/" + name);
+        ResourceLocation textureLocation = modLoc("block/" + name);
         ModelFile cube = models().cubeAll(name, textureLocation);
         simpleBlock(block, cube);
     }
 
     private void createStrawBlock(String name, @NotNull Block block) {
+        ResourceLocation textureLocation = modLoc("block/" + name);
         ModelFile strawBlockModel = models()
                 .withExistingParent(name,"minecraft:block/carpet")
-                .texture("wool", "animania:block/" + name)
-                .texture("particle", "animania:block/" + name)
+                .texture("wool", textureLocation)
+                .texture("particle", textureLocation)
                 .renderType("minecraft:cutout");
         simpleBlock(block, strawBlockModel);
     }
 
     private void createSaltLickBlock(String name, @NotNull Block block) {
-        ModelFile cube = models().cubeAll(name, ResourceLocation.fromNamespaceAndPath("minecraft","block/stone"))
-                .texture("particle", AnimaniaMod.getId("item/salt_lick"));
+        ModelFile cube = models().cubeAll(name, mcLoc("block/stone"))
+                .texture("particle", modLoc("item/salt_lick"));
         simpleBlock(block, cube);
     }
 }

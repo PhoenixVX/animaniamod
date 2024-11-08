@@ -24,6 +24,8 @@ public class AnimaniaItemModelProvider extends ItemModelProvider {
                 } else {
                     simpleBlockItem(blockItem.getBlock());
                 }
+            } else if (item.equals(AnimaniaItems.SLOP_BUCKET.get())) {
+                withExistingParent("slop_bucket", "item/generated").texture("layer0", mcLoc("item/bucket"));
             }
         }
     }
