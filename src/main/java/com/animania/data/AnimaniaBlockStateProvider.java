@@ -18,14 +18,7 @@ public class AnimaniaBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         createCube("mud_block", AnimaniaBlocks.MUD_BLOCK.get());
-
-        Block strawBlock = AnimaniaBlocks.STRAW_BLOCK.get();
-        ModelFile strawBlockModel = models()
-                .withExistingParent("straw_block","minecraft:block/carpet")
-                .texture("wool", "animania:block/straw_block")
-                .texture("particle", "animania:block/straw_block")
-                .renderType("minecraft:cutout");
-        simpleBlock(strawBlock, strawBlockModel);
+        createStrawBlock("straw_block", AnimaniaBlocks.STRAW_BLOCK.get());
     }
 
     private void createCube(String name, @NotNull Block block) {
@@ -34,7 +27,12 @@ public class AnimaniaBlockStateProvider extends BlockStateProvider {
         simpleBlock(block, cube);
     }
 
-    private String getNormalizedPath(String path) {
-        return path.replace(":block." + AnimaniaMod.MOD_ID, "");
+    private void createStrawBlock(String name, @NotNull Block block) {
+        ModelFile strawBlockModel = models()
+                .withExistingParent(name,"minecraft:block/carpet")
+                .texture("wool", "animania:block/" + name)
+                .texture("particle", "animania:block/" + name)
+                .renderType("minecraft:cutout");
+        simpleBlock(block, strawBlockModel);
     }
 }
