@@ -12,6 +12,6 @@ public class AnimaniaBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(AnimaniaMod.MOD_ID);
 
     // Animania base blocks
-    public static final Supplier<Block> MUD_BLOCK = BLOCKS.registerBlock("mud_block", AnimaniaMudBlock::new, BlockBehaviour.Properties.of().strength(1.0F, 1.0F));
+    public static final Supplier<Block> MUD_BLOCK = BLOCKS.registerBlock("mud_block", AnimaniaMudBlock::new, BlockBehaviour.Properties.of().strength(1.0F, 1.0F).speedFactor(0.6F).sound(SoundType.SLIME_BLOCK).randomTicks());
     public static final Supplier<Block> STRAW_BLOCK = BLOCKS.registerBlock("straw_block", AnimaniaStrawBlock::new, BlockBehaviour.Properties.of().sound(SoundType.GRASS).noOcclusion());
 }
