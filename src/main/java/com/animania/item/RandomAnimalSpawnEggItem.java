@@ -1,5 +1,6 @@
 package com.animania.item;
 
+import com.animania.AnimaniaMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -26,6 +27,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
+import java.util.Random;
 
 public class RandomAnimalSpawnEggItem extends Item {
     public RandomAnimalSpawnEggItem(Properties properties) {
@@ -43,7 +45,7 @@ public class RandomAnimalSpawnEggItem extends Item {
             Direction direction = context.getClickedFace();
             BlockState clickedState = level.getBlockState(clickedPos);
             if (level.getBlockEntity(clickedPos) instanceof Spawner spawner) {
-                EntityType<?> entityType = this.getType(itemStack);
+                EntityType<?> entityType = this.getType();
                 if (entityType != null) {
                     spawner.setEntityId(entityType, level.getRandom());
                     level.sendBlockUpdated(clickedPos, clickedState, clickedState, 3);
@@ -58,7 +60,7 @@ public class RandomAnimalSpawnEggItem extends Item {
                     clickedPos1 = clickedPos.relative(direction);
                 }
 
-                EntityType<?> entityType = this.getType(itemStack);
+                EntityType<?> entityType = this.getType();
                 if (entityType != null) {
                     Entity entity = entityType.spawn((ServerLevel) level, itemStack, context.getPlayer(), clickedPos1, MobSpawnType.SPAWN_EGG, true, !Objects.equals(clickedPos, clickedPos1) && direction == Direction.UP);
                     if (entity != null) {
@@ -84,7 +86,7 @@ public class RandomAnimalSpawnEggItem extends Item {
             if (!(level.getBlockState(clickedPos).getBlock() instanceof LiquidBlock)) {
                 return InteractionResultHolder.pass(itemStack);
             } else if (level.mayInteract(player, clickedPos) && player.mayUseItemAt(clickedPos, clickedBlock.getDirection(), itemStack)) {
-                EntityType<?> entityType = this.getType(itemStack);
+                EntityType<?> entityType = this.getType();
                 if (entityType != null) {
                     Entity entity = entityType.spawn((ServerLevel) level, itemStack, player, clickedPos, MobSpawnType.SPAWN_EGG, false, false);
                     if (entity == null) {
@@ -103,7 +105,9 @@ public class RandomAnimalSpawnEggItem extends Item {
         }
     }
 
-    public @Nullable EntityType<?> getType(ItemStack itemStack) {
+    // TODO: Select randomly from list of entities
+    public @Nullable EntityType<?> getType() {
+        Random random = AnimaniaMod.getRandom();
         return null;
     }
 }

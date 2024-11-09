@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "animania:block/trough_block",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "animania:block/trough_block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "animania:block/trough_block",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "animania:block/trough_block",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "animania:block/trough_block"
+    },
+    "facing=west": {
+      "model": "animania:block/trough_block",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

@@ -20,8 +20,8 @@ public class AnimaniaItems {
     public static final Supplier<Item> MUD_BLOCK_ITEM = registerBlockItem("mud_block", AnimaniaBlocks.MUD_BLOCK, new Item.Properties());
     public static final Supplier<Item> STRAW_BLOCK_ITEM = registerBlockItem("straw_block", AnimaniaBlocks.STRAW_BLOCK, new Item.Properties());
     public static final Supplier<Item> SALT_LICK_BLOCK_ITEM = registerBlockItem("salt_lick_block", AnimaniaBlocks.SALT_LICK_BLOCK, new Item.Properties());
-    public static final Supplier<Item> TROUGH_BLOCK_ITEM = registerItem("trough_block", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final Supplier<Item> NEST_BLOCK_ITEM = registerItem("nest_block", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final Supplier<Item> TROUGH_BLOCK_ITEM = registerBlockItem("trough_block", AnimaniaBlocks.TROUGH_BLOCK, new Item.Properties());
+    public static final Supplier<Item> NEST_BLOCK_ITEM = registerBlockItem("nest_block", AnimaniaBlocks.NEST_BLOCK, new Item.Properties());
 
     // Animania base items
     public static final Supplier<Item> SLOP_BUCKET = registerItem("slop_bucket", () -> new BucketItem(AnimaniaFluids.SLOP_FLUID.value(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));

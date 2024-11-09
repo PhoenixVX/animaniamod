@@ -20,6 +20,8 @@ public class AnimaniaBlockStateProvider extends BlockStateProvider {
         createCube("mud_block", AnimaniaBlocks.MUD_BLOCK.get());
         createStrawBlock("straw_block", AnimaniaBlocks.STRAW_BLOCK.get());
         createSaltLickBlock("salt_lick_block", AnimaniaBlocks.SALT_LICK_BLOCK.get());
+        createCube("nest_block", AnimaniaBlocks.NEST_BLOCK.get());
+        createDirectionalBlock("trough_block", AnimaniaBlocks.TROUGH_BLOCK.get(), modLoc("block/mud_block"), mcLoc("block/oak_planks"));
     }
 
     private void createCube(String name, @NotNull Block block) {
@@ -42,5 +44,12 @@ public class AnimaniaBlockStateProvider extends BlockStateProvider {
         ModelFile cube = models().cubeAll(name, mcLoc("block/stone"))
                 .texture("particle", modLoc("item/salt_lick"));
         simpleBlock(block, cube);
+    }
+
+    private void createDirectionalBlock(String name, @NotNull Block block, ResourceLocation sideTexture, ResourceLocation bottomTexture) {
+        ModelFile model = models().withExistingParent(name, mcLoc("block/cube_column"))
+                .texture("side", sideTexture)
+                .texture("end", bottomTexture);
+        directionalBlock(block, model);
     }
 }
