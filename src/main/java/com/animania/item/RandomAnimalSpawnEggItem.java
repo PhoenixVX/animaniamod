@@ -1,8 +1,10 @@
 package com.animania.item;
 
 import com.animania.AnimaniaMod;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -14,6 +16,7 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
@@ -26,6 +29,7 @@ import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -103,6 +107,17 @@ public class RandomAnimalSpawnEggItem extends Item {
                 return InteractionResultHolder.fail(itemStack);
             }
         }
+    }
+
+    @Override
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+
+        // TODO: Tooltip should only use 1 line
+        Component description1 = Component.translatable("item.animania.random_spawn_egg.desc1").withStyle(ChatFormatting.GOLD);
+        Component description2 = Component.translatable("item.animania.random_spawn_egg.desc2").withStyle(ChatFormatting.DARK_GRAY);
+        tooltipComponents.add(description1);
+        tooltipComponents.add(description2);
     }
 
     // TODO: Select randomly from list of entities

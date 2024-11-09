@@ -7,6 +7,8 @@
   "block.animania.trough_block": "Trough",
   "block.animania.nest_block": "Nest",
   "item.animania.random_spawn_egg": "Random Animal Spawn Egg",
+  "item.animania.random_spawn_egg.desc1": "Spawn",
+  "item.animania.random_spawn_egg.desc2": "[Right Click]",
   "item.animania.slop_bucket": "Slop Bucket",
   "item.animania.manual": "Animania Manual"
 }
