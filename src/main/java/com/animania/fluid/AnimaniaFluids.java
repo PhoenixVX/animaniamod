@@ -18,7 +18,9 @@ public class AnimaniaFluids {
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(Registries.FLUID, AnimaniaMod.MOD_ID);
 
     // Fluid types
-    public static final DeferredHolder<FluidType, FluidType> SLOP_FLUID_TYPE = FLUID_TYPES.register("slop_fluid", () -> new FluidType(FluidType.Properties.create()));
+    public static final DeferredHolder<FluidType, FluidType> SLOP_FLUID_TYPE = FLUID_TYPES.register("slop_fluid", () -> new FluidType(FluidType.Properties.create()
+            .canExtinguish(true)
+    ));
 
     // Fluids
     public static final DeferredHolder<Fluid, FlowingFluid> SLOP_FLUID = FLUIDS.register("slop_fluid", () -> new BaseFlowingFluid.Source(makeSlopProperties()));
