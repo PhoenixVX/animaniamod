@@ -1,7 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "minecraft:block/stone",
-    "particle": "animania:item/salt_lick"
+    "all": "animania:block/salt_lick_block"
   }
 }

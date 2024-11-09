@@ -10,6 +10,7 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("SameParameterValue")
 public class AnimaniaBlockStateProvider extends BlockStateProvider {
     public AnimaniaBlockStateProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, AnimaniaMod.MOD_ID, existingFileHelper);
@@ -19,7 +20,7 @@ public class AnimaniaBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         createCube("mud_block", AnimaniaBlocks.MUD_BLOCK.get());
         createStrawBlock("straw_block", AnimaniaBlocks.STRAW_BLOCK.get());
-        createSaltLickBlock("salt_lick_block", AnimaniaBlocks.SALT_LICK_BLOCK.get());
+        createCube("salt_lick_block", AnimaniaBlocks.SALT_LICK_BLOCK.get());
         createCube("nest_block", AnimaniaBlocks.NEST_BLOCK.get());
         createDirectionalBlock("trough_block", AnimaniaBlocks.TROUGH_BLOCK.get(), modLoc("block/mud_block"), mcLoc("block/oak_planks"));
     }
@@ -38,12 +39,6 @@ public class AnimaniaBlockStateProvider extends BlockStateProvider {
                 .texture("particle", textureLocation)
                 .renderType("minecraft:cutout");
         simpleBlock(block, strawBlockModel);
-    }
-
-    private void createSaltLickBlock(String name, @NotNull Block block) {
-        ModelFile cube = models().cubeAll(name, mcLoc("block/stone"))
-                .texture("particle", modLoc("item/salt_lick"));
-        simpleBlock(block, cube);
     }
 
     private void createDirectionalBlock(String name, @NotNull Block block, ResourceLocation sideTexture, ResourceLocation bottomTexture) {
