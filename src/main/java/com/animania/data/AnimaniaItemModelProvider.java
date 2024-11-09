@@ -28,8 +28,6 @@ public class AnimaniaItemModelProvider extends ItemModelProvider {
                 } else {
                     simpleBlockItem(blockItem.getBlock());
                 }
-            } else if (item.equals(AnimaniaItems.SLOP_BUCKET.get())) {
-                createSimpleItem("slop_bucket", mcLoc("item/bucket"));
             } else {
                 createSimpleItem(BuiltInRegistries.ITEM.getKey(item).getPath());
             }
