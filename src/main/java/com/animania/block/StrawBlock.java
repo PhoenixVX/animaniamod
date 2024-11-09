@@ -43,6 +43,6 @@ public class StrawBlock extends CarpetBlock {
         boolean isOpaqueBlockBelow = !belowState.is(Tags.Blocks.GLASS_BLOCKS);
         boolean canStay = !level.isEmptyBlock(belowPos);
 
-        return belowState.is(AnimaniaBlocks.STRAW_BLOCK.get()) || (isFullBlockBelow && isOpaqueBlockBelow && canStay);
+        return !belowState.is(AnimaniaBlocks.STRAW_BLOCK.get()) || (isFullBlockBelow && isOpaqueBlockBelow && canStay);
     }
 }
