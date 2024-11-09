@@ -26,7 +26,7 @@ public class AnimaniaItems {
     // Animania base items
     public static final Supplier<Item> SLOP_BUCKET = registerItem("slop_bucket", () -> new BucketItem(AnimaniaFluids.SLOP_FLUID.value(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
     public static final Supplier<Item> MANUAL = registerItem("manual", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final Supplier<Item> RANDOM_SPAWN_EGG = registerItem("random_spawn_egg", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final Supplier<Item> RANDOM_SPAWN_EGG = registerItem("random_spawn_egg", () -> new RandomAnimalSpawnEggItem(new Item.Properties().stacksTo(1)));
 
     // Animania item groups
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ANIMANIA_ENTITIES = CREATIVE_MODE_TABS.register("animania_entities", () ->

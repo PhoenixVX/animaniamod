@@ -15,10 +15,13 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
 
+import java.util.Random;
+
 @Mod(AnimaniaMod.MOD_ID)
 public class AnimaniaMod {
     public static final String MOD_ID = "animania";
     private static final Logger LOGGER = LogUtils.getLogger();
+    private static final Random RANDOM = new Random();
 
     public AnimaniaMod(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
@@ -44,11 +47,16 @@ public class AnimaniaMod {
 
     }
 
+    // Utility methods
     public static ResourceLocation getId(String path) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 
     public static Logger getLogger() {
         return LOGGER;
+    }
+
+    public static Random getRandom() {
+        return RANDOM;
     }
 }

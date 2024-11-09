@@ -38,7 +38,7 @@ allprojects {
 
     spotless {
         java {
-            target rootProject.fileTree("src") {
+            target project.fileTree("src") {
                 include "**/*.java"
             }
             removeUnusedImports()
