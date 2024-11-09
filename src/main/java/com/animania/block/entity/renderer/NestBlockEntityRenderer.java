@@ -101,20 +101,20 @@ public class NestBlockEntityRenderer implements BlockEntityRenderer<NestBlockEnt
 
         @Override
         public void renderToBuffer(@NotNull PoseStack poseStack, @NotNull VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
-            this.nest1.render(poseStack, buffer, packedLight, packedLight, color);
-            this.fluff3.render(poseStack, buffer, packedLight, packedLight, color);
-            this.fluff1.render(poseStack, buffer, packedLight, packedLight, color);
-            this.nest2.render(poseStack, buffer, packedLight, packedLight, color);
-            this.nest3.render(poseStack, buffer, packedLight, packedLight, color);
-            this.nest4.render(poseStack, buffer, packedLight, packedLight, color);
-            this.nest5.render(poseStack, buffer, packedLight, packedLight, color);
-            this.nest6.render(poseStack, buffer, packedLight, packedLight, color);
-            this.nest7.render(poseStack, buffer, packedLight, packedLight, color);
-            this.nest8.render(poseStack, buffer, packedLight, packedLight, color);
-            this.block.render(poseStack, buffer, packedLight, packedLight, color);
-            this.fluff2.render(poseStack, buffer, packedLight, packedLight, color);
-            this.fluff4.render(poseStack, buffer, packedLight, packedLight, color);
-            this.fluff5.render(poseStack, buffer, packedLight, packedLight, color);
+            this.nest1.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.fluff3.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.fluff1.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.nest2.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.nest3.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.nest4.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.nest5.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.nest6.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.nest7.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.nest8.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.block.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.fluff2.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.fluff4.render(poseStack, buffer, packedLight, packedOverlay, color);
+            this.fluff5.render(poseStack, buffer, packedLight, packedOverlay, color);
         }
     }
 }
