@@ -1,0 +1,16 @@
+{
+  "name": "Mud",
+  "icon": "animania:mud_block",
+  "category": "animania:blocks_category",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Mud is needed for pigs to be fully happy. When there is a large enough patch of mud around, pigs will lay around inside it. Mud is crafted like this:"
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Mud Block",
+      "recipe": "animania:mud_block"
+    }
+  ]
+}

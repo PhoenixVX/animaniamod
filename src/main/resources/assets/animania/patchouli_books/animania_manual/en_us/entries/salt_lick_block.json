@@ -1,0 +1,16 @@
+{
+  "name": "Salt Lick",
+  "icon": "animania:salt_lick_block",
+  "category": "animania:blocks_category",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Salt licks are essential for cows, goats, sheep, pigs, and horses. If they are hurt, they can heal themselves by licking the salt lick. They are healed by one heart each time they lick it. The salt lick can be used 200 times by default and you will see it decrease in size over time."
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Salt Lick Block",
+      "recipe": "animania:salt_lick_block"
+    }
+  ]
+}

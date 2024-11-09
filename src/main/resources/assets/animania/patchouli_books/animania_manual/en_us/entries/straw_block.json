@@ -1,0 +1,16 @@
+{
+  "name": "Straw",
+  "icon": "animania:straw_block",
+  "category": "animania:blocks_category",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Straw is the favorite sleeping block for most animals. Using straw, you can control where animals lie down to sleep."
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Straw Block",
+      "recipe": "animania:straw_block"
+    }
+  ]
+}

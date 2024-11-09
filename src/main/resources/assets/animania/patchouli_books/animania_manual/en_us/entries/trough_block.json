@@ -1,0 +1,20 @@
+{
+  "name": "Trough",
+  "icon": "animania:trough_block",
+  "category": "animania:blocks_category",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The trough is one of the most important blocks to keep your farm healthy. They are used to provide your animals with food and water."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Troughs can be filled with Water, Slop, and the following items: $(li) Wheat $(li) Apple $(li) Carrot $(li) Beetroot $(li) Potato $(li) Poisonous Potato $(li) Wheat Seeds $(li) Melon Seeds $(li) Beetroot Seeds $(li) Pumpkin Seeds $(li) Egg $(li) Beef $(li) Raw Fish"
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Trough Block",
+      "recipe": "animania:trough_block"
+    }
+  ]
+}

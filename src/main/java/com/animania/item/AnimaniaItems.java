@@ -25,7 +25,7 @@ public class AnimaniaItems {
 
     // Animania base items
     public static final Supplier<Item> SLOP_BUCKET = registerItem("slop_bucket", () -> new BucketItem(AnimaniaFluids.SLOP_FLUID.value(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
-    public static final Supplier<Item> MANUAL = registerItem("manual", () -> new Item(new Item.Properties().stacksTo(1)));
+    // public static final Supplier<Item> MANUAL = registerItem("manual", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final Supplier<Item> RANDOM_SPAWN_EGG = registerItem("random_spawn_egg", () -> new RandomAnimalSpawnEggItem(new Item.Properties().stacksTo(1)));
 
     // Animania item groups
@@ -33,9 +33,7 @@ public class AnimaniaItems {
             CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.animania_entities"))
                     .icon(() -> new ItemStack(Items.EGG))
-                    .displayItems(((parameters, output) -> {
-                        output.accept(new ItemStack(RANDOM_SPAWN_EGG.get()));
-                    }))
+                    .displayItems(((parameters, output) -> output.accept(new ItemStack(RANDOM_SPAWN_EGG.get()))))
                     .build()
     );
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ANIMANIA_RESOURCES = CREATIVE_MODE_TABS.register("animania_resources", () ->
@@ -44,7 +42,7 @@ public class AnimaniaItems {
                     .icon(() -> new ItemStack(SLOP_BUCKET.get()))
                     .displayItems(((parameters, output) -> {
                         output.accept(new ItemStack(SLOP_BUCKET.get()));
-                        output.accept(new ItemStack(MANUAL.get()));
+                        // output.accept(new ItemStack(MANUAL.get()));
                         output.accept(new ItemStack(STRAW_BLOCK_ITEM.get()));
                         output.accept(new ItemStack(SALT_LICK_BLOCK_ITEM.get()));
                         output.accept(new ItemStack(MUD_BLOCK_ITEM.get()));

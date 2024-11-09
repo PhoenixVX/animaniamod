@@ -15,6 +15,7 @@ allprojects {
 
     repositories {
         mavenLocal()
+        maven { url 'https://maven.blamejared.com' }
     }
 
     base {
@@ -201,6 +202,9 @@ neoForge {
     }
 }
 
+dependencies {
+    localRuntime "vazkii.patchouli:Patchouli:1.21-88-NEOFORGE-SNAPSHOT"
+}
 
 tasks.named('wrapper', Wrapper).configure {
     // Define wrapper values here so as to not have to always do so when updating gradlew.properties.

@@ -1,0 +1,16 @@
+{
+  "name": "Nest",
+  "icon": "animania:nest_block",
+  "category": "animania:blocks_category",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The nest is needed for hens and peahens to be able to lay eggs. If they are ready to lay an egg, they will seek out nests in the area. If there is an egg in the nest, only animals of the same breed can lay more eggs there. To remove eggs from the nest, right click it. You can also pull the contents using pipes or hoppers. It is crafted like this:"
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Nest Block",
+      "recipe": "animania:nest_block"
+    }
+  ]
+}

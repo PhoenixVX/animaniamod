@@ -1,0 +1,11 @@
+// 1.21.1	2024-11-09T12:45:54.237913527	Recipes
+bb9c639b8769e23a6a8b799648fb48bfb633a175 data/animania/advancement/recipes/decorations/mud_block.json
+ddaa8b29a57193e6362b71a2bbff5fc366e2e086 data/animania/advancement/recipes/decorations/nest_block.json
+27cf83dbb76d8700aec1c2e8680e11b6d9722121 data/animania/advancement/recipes/decorations/trough_block.json
+eb6e96eb483621d047a5db9cd8b7022e14a96deb data/animania/advancement/recipes/food/salt_lick_block.json
+32f339073379506b5b4ae85929fb03ff5ee1355b data/animania/advancement/recipes/food/straw_block.json
+8511eedda763ebe9ffbaa6a8134480e47dc444ef data/animania/recipe/mud_block.json
+e8b7973dfcb7dfd24b7686c9eeff20d4e6502d7f data/animania/recipe/nest_block.json
+c08063f86f4469f6a7c80bc8fab1916f46bb01e1 data/animania/recipe/salt_lick_block.json
+0d49ef6f9346861c703ab0c53252f7acdf9e0dac data/animania/recipe/straw_block.json
+45dbeed5f60d99565054bb7ea24163f5dc8e014a data/animania/recipe/trough_block.json
