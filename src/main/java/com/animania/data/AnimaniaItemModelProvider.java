@@ -26,6 +26,8 @@ public class AnimaniaItemModelProvider extends ItemModelProvider {
                 }
             } else if (item.equals(AnimaniaItems.SLOP_BUCKET.get())) {
                 withExistingParent("slop_bucket", "item/generated").texture("layer0", mcLoc("item/bucket"));
+            } else if (item.equals(AnimaniaItems.RANDOM_SPAWN_EGG.get())) {
+                withExistingParent("random_spawn_egg", "item/generated").texture("layer0", AnimaniaMod.getId("item/random_spawn_egg"));
             }
         }
     }

@@ -2,6 +2,11 @@
   "itemGroup.animania_entities": "Animania Entities",
   "itemGroup.animania_resources": "Animania Resources",
   "block.animania.mud_block": "Mud Block",
-  "block.animania.straw_block": "Straw Block",
-  "block.animania.salt_lick_block": "Salt Lick"
+  "block.animania.straw_block": "Straw",
+  "block.animania.salt_lick_block": "Salt Lick",
+  "block.animania.trough_block": "Trough",
+  "block.animania.nest_block": "Nest",
+  "item.animania.random_spawn_egg": "Random Animal Spawn Egg",
+  "item.animania.slop_bucket": "Slop Bucket",
+  "item.animania.manual": "Animania Manual"
 }
