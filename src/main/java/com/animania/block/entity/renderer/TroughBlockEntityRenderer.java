@@ -1,19 +1,24 @@
 package com.animania.block.entity.renderer;
 
 import com.animania.AnimaniaMod;
+import com.animania.block.TroughBlock;
 import com.animania.block.entity.TroughBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
 public class TroughBlockEntityRenderer implements BlockEntityRenderer<TroughBlockEntity> {
@@ -28,9 +33,28 @@ public class TroughBlockEntityRenderer implements BlockEntityRenderer<TroughBloc
 
     @Override
     public void render(@NotNull TroughBlockEntity blockEntity, float partialTick, @NotNull PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+        BlockState blockState = blockEntity.getBlockState();
+        Direction direction = blockState.getValue(TroughBlock.HORIZONTAL_FACING);
+
         poseStack.pushPose();
+
+        switch (direction) {
+            case SOUTH -> poseStack.translate(-0.50F, -0.75F, 0.5F);
+            case NORTH -> {
+                poseStack.rotateAround(Axis.YP.rotationDegrees(180.0F), 0.0F, 1.0F, 0.0F);
+                poseStack.translate(-1.5F, -0.75F, -0.5F);
+            }
+            case EAST -> {
+                poseStack.rotateAround(Axis.YP.rotationDegrees(270.0F), 0.0F, 1.0F, 0.0F);
+                poseStack.translate(0.50F, -0.75F, -0.50F);
+            }
+            case WEST -> {
+                poseStack.rotateAround(Axis.YP.rotationDegrees(90.0F), 0.0F, 1.0F, 0.0F);
+                poseStack.translate(-0.50F, -0.75F, 0.5F);
+            }
+        }
         VertexConsumer vertexConsumer = bufferSource.getBuffer(RenderType.entityTranslucent(TEXTURE));
-        this.model.renderToBuffer(poseStack, vertexConsumer, packedLight, packedOverlay);
+        this.model.renderToBuffer(poseStack, vertexConsumer, LightTexture.pack(12, 15), packedOverlay);
         poseStack.popPose();
     }
 
@@ -39,13 +63,13 @@ public class TroughBlockEntityRenderer implements BlockEntityRenderer<TroughBloc
         MeshDefinition mesh = new MeshDefinition();
         PartDefinition rootPart = mesh.getRoot();
 
-        PartDefinition block1 = rootPart.addOrReplaceChild("block1", CubeListBuilder.create().texOffs(2, 2).addBox(-1F, -5F, -6F, 2, 10, 12, new CubeDeformation(0.0F)), PartPose.offset(-7F, 17F, 0F));
-        PartDefinition base2 = rootPart.addOrReplaceChild("base2", CubeListBuilder.create().texOffs(4, 4).addBox(-1F, -1F, -5F, 2, 2, 10, new CubeDeformation(0.0F)), PartPose.offset(22F, 23F, 0F));
-        PartDefinition base1 = rootPart.addOrReplaceChild("base1", CubeListBuilder.create().texOffs(4, 4).addBox(-1F, -1F, -5F, 2, 2, 10, new CubeDeformation(0.0F)), PartPose.offset(-6F, 23F, 0F));
-        PartDefinition block2 = rootPart.addOrReplaceChild("block2", CubeListBuilder.create().texOffs(2, 2).addBox(-1F, -5F, -6F, 2, 10, 12, new CubeDeformation(0.0F)), PartPose.offset(23F, 17F, 0F));
-        PartDefinition block3 = rootPart.addOrReplaceChild("block3", CubeListBuilder.create().texOffs(1, 26).addBox(-14F, -4F, -1F, 28, 8, 2, new CubeDeformation(0.0F)), PartPose.offset(8F, 18F, -5F));
-        PartDefinition block4 = rootPart.addOrReplaceChild("block4", CubeListBuilder.create().texOffs(1, 26).addBox(-14F, -4F, -1F, 28, 8, 2, new CubeDeformation(0.0F)), PartPose.offset(8F, 18F, 5F));
-        PartDefinition block5 = rootPart.addOrReplaceChild("block5", CubeListBuilder.create().texOffs(3, 42).addBox(-14F, -0.5F, -4F, 28, 1, 8, new CubeDeformation(0.0F)), PartPose.offset(8F, 21.5F, 0F));
+        rootPart.addOrReplaceChild("block1", CubeListBuilder.create().texOffs(2, 2).addBox(-1F, -5F, -6F, 2, 10, 12, new CubeDeformation(0.0F)), PartPose.offset(-7F, 17F, 0F));
+        rootPart.addOrReplaceChild("base2", CubeListBuilder.create().texOffs(4, 4).addBox(-1F, -1F, -5F, 2, 2, 10, new CubeDeformation(0.0F)), PartPose.offset(22F, 23F, 0F));
+        rootPart.addOrReplaceChild("base1", CubeListBuilder.create().texOffs(4, 4).addBox(-1F, -1F, -5F, 2, 2, 10, new CubeDeformation(0.0F)), PartPose.offset(-6F, 23F, 0F));
+        rootPart.addOrReplaceChild("block2", CubeListBuilder.create().texOffs(2, 2).addBox(-1F, -5F, -6F, 2, 10, 12, new CubeDeformation(0.0F)), PartPose.offset(23F, 17F, 0F));
+        rootPart.addOrReplaceChild("block3", CubeListBuilder.create().texOffs(1, 26).addBox(-14F, -4F, -1F, 28, 8, 2, new CubeDeformation(0.0F)), PartPose.offset(8F, 18F, -5F));
+        rootPart.addOrReplaceChild("block4", CubeListBuilder.create().texOffs(1, 26).addBox(-14F, -4F, -1F, 28, 8, 2, new CubeDeformation(0.0F)), PartPose.offset(8F, 18F, 5F));
+        rootPart.addOrReplaceChild("block5", CubeListBuilder.create().texOffs(3, 42).addBox(-14F, -8.5F, -4F, 28, 1, 8, new CubeDeformation(0.0F)), PartPose.offset(8F, 21.5F, 0F));
 
         return LayerDefinition.create(mesh, 128, 64);
     }

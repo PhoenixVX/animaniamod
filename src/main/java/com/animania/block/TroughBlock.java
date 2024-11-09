@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class TroughBlock extends BaseEntityBlock {
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final DirectionProperty HORIZONTAL_FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final MapCodec<TroughBlock> CODEC = simpleCodec(TroughBlock::new);
 
     private static final VoxelShape NORTH_SHAPE = Shapes.box(0.0D, 0.0D, 0.25D, 2.0D, 0.3D, 0.75D);
@@ -31,7 +31,7 @@ public class TroughBlock extends BaseEntityBlock {
 
     public TroughBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(HORIZONTAL_FACING, Direction.NORTH));
     }
 
     @Override
@@ -41,7 +41,7 @@ public class TroughBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+        builder.add(HORIZONTAL_FACING);
     }
 
     @Override
@@ -66,7 +66,7 @@ public class TroughBlock extends BaseEntityBlock {
 
     @Override
     public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
+        return this.defaultBlockState().setValue(HORIZONTAL_FACING, context.getHorizontalDirection());
     }
 
     @Override
@@ -77,7 +77,7 @@ public class TroughBlock extends BaseEntityBlock {
     // Utility methods
     @NotNull
     public VoxelShape getVoxelShape(@NotNull BlockState state) {
-        return switch (state.getValue(FACING)) {
+        return switch (state.getValue(HORIZONTAL_FACING)) {
             case SOUTH -> SOUTH_SHAPE;
             case WEST -> WEST_SHAPE;
             case EAST -> EAST_SHAPE;
