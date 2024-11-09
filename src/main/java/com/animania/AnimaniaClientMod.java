@@ -2,6 +2,7 @@ package com.animania;
 
 import com.animania.block.entity.AnimaniaBlockEntityTypes;
 import com.animania.block.entity.renderer.NestBlockEntityRenderer;
+import com.animania.block.entity.renderer.SaltLickBlockEntityRenderer;
 import com.animania.block.entity.renderer.TroughBlockEntityRenderer;
 import com.animania.fluid.AnimaniaFluids;
 import net.minecraft.resources.ResourceLocation;
@@ -28,10 +29,12 @@ public class AnimaniaClientMod {
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(AnimaniaBlockEntityTypes.TROUGH_BLOCK_ENTITY.get(), TroughBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(AnimaniaBlockEntityTypes.NEST_BLOCK_ENTITY.get(), NestBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(AnimaniaBlockEntityTypes.SALT_LICK_BLOCK_ENTITY.get(), SaltLickBlockEntityRenderer::new);
     }
 
     public static void registerLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(TroughBlockEntityRenderer.TROUGH, TroughBlockEntityRenderer::createBodyLayer);
         event.registerLayerDefinition(NestBlockEntityRenderer.NEST, NestBlockEntityRenderer::createBodyLayer);
+        event.registerLayerDefinition(SaltLickBlockEntityRenderer.SALT_LICK, SaltLickBlockEntityRenderer::createBodyLayer);
     }
 }
