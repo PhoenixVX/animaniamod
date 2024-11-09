@@ -34,7 +34,7 @@ public class NestBlockEntityRenderer implements BlockEntityRenderer<NestBlockEnt
         poseStack.translate(0.5F, -0.5F, 0.5F);
         poseStack.rotateAround(Axis.XP.rotationDegrees(180.0F), 0.0F, 1.0F, 0.0F);
         VertexConsumer vertexConsumer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(NEST_WHITE_TEXTURE));
-        this.nestModel.renderToBuffer(poseStack, vertexConsumer, LightTexture.FULL_BRIGHT, packedOverlay);
+        this.nestModel.renderToBuffer(poseStack, vertexConsumer, packedLight, packedOverlay);
         poseStack.popPose();
     }
 
