@@ -1,15 +1,32 @@
 package com.animania.block;
 
+import com.animania.block.entity.TroughBlockEntity;
 import com.mojang.serialization.MapCodec;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DirectionalBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class TroughBlock extends DirectionalBlock {
+public class TroughBlock extends BaseEntityBlock {
+    public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final MapCodec<TroughBlock> CODEC = simpleCodec(TroughBlock::new);
+
+    private static final VoxelShape NORTH_SHAPE = Shapes.box(0.0D, 0.0D, 0.25D, 2.0D, 0.3D, 0.75D);
+    private static final VoxelShape SOUTH_SHAPE = Shapes.box(-1.0D, 0.0D, 0.25D, 1.0D, 0.3D, 0.75D);
+    private static final VoxelShape WEST_SHAPE = Shapes.box(0.25D, 0.0D, -1.0D, 0.75D, 0.3D, 1.0D);
+    private static final VoxelShape EAST_SHAPE = Shapes.box(0.25D, 0.0D, 0.0D, 0.75D, 0.3D, 2.0D);
 
     public TroughBlock(Properties properties) {
         super(properties);
@@ -17,12 +34,42 @@ public class TroughBlock extends DirectionalBlock {
     }
 
     @Override
-    protected @NotNull MapCodec<? extends DirectionalBlock> codec() {
+    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
+    }
+
+    @Override
+    public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
+        return new TroughBlockEntity(pos, state);
+    }
+
+    @Override
+    protected @NotNull VoxelShape getCollisionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
+        return getVoxelShape(state);
+    }
+
+    @Override
+    protected @NotNull VoxelShape getVisualShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
+        return getVoxelShape(state);
+    }
+
+    @Override
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
+    }
+
+    // Utility methods
+    public VoxelShape getVoxelShape(@NotNull BlockState state) {
+        return switch (state.getValue(FACING)) {
+            case SOUTH -> SOUTH_SHAPE;
+            case WEST -> WEST_SHAPE;
+            case EAST -> EAST_SHAPE;
+            default -> NORTH_SHAPE;
+        };
     }
 }

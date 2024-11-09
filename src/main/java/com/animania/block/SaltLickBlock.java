@@ -36,7 +36,6 @@ public class SaltLickBlock extends BaseEntityBlock {
         return CODEC;
     }
 
-    // TODO: Decrease salt lick size when used
     @Override
     protected @NotNull VoxelShape getCollisionShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return getVoxelShape(level, pos);
