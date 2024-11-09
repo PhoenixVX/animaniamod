@@ -15,6 +15,7 @@ public class AnimaniaBlockEntityTypes {
 
     public static final Supplier<BlockEntityType<SaltLickBlockEntity>> SALT_LICK_BLOCK_ENTITY = registerBlockEntityType("salt_lick", SaltLickBlockEntity::new, AnimaniaBlocks.SALT_LICK_BLOCK);
     public static final Supplier<BlockEntityType<TroughBlockEntity>> TROUGH_BLOCK_ENTITY = registerBlockEntityType("trough", TroughBlockEntity::new, AnimaniaBlocks.TROUGH_BLOCK);
+    public static final Supplier<BlockEntityType<NestBlockEntity>> NEST_BLOCK_ENTITY = registerBlockEntityType("nest", NestBlockEntity::new, AnimaniaBlocks.NEST_BLOCK);
 
     @SuppressWarnings("DataFlowIssue")
     public static <E extends BlockEntity> Supplier<BlockEntityType<E>> registerBlockEntityType(String name, BlockEntityType.BlockEntitySupplier<E> blockEntitySupplier, Supplier<Block> validBlock) {
