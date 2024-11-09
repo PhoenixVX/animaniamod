@@ -11,8 +11,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -22,7 +23,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class SaltLickBlock extends BaseEntityBlock {
+public class SaltLickBlock extends Block implements EntityBlock {
     public static final MapCodec<SaltLickBlock> CODEC = simpleCodec(SaltLickBlock::new);
 
     private static final VoxelShape SHAPE = Shapes.box(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.25D, 0.8125D);
@@ -32,7 +33,7 @@ public class SaltLickBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
+    protected @NotNull MapCodec<? extends Block> codec() {
         return CODEC;
     }
 
