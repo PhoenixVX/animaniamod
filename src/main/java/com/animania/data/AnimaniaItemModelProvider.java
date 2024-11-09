@@ -2,7 +2,9 @@ package com.animania.data;
 
 import com.animania.AnimaniaMod;
 import com.animania.item.AnimaniaItems;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
@@ -21,14 +23,24 @@ public class AnimaniaItemModelProvider extends ItemModelProvider {
             if (item instanceof BlockItem blockItem) {
                 if (holder.equals(AnimaniaItems.SALT_LICK_BLOCK_ITEM)) {
                     withExistingParent("salt_lick_block", "item/generated").texture("layer0", AnimaniaMod.getId("item/salt_lick"));
+                } else if (holder.equals(AnimaniaItems.TROUGH_BLOCK_ITEM)) {
+                    withExistingParent("trough_block", "item/generated").texture("layer0", AnimaniaMod.getId("block/trough_block"));
                 } else {
                     simpleBlockItem(blockItem.getBlock());
                 }
             } else if (item.equals(AnimaniaItems.SLOP_BUCKET.get())) {
-                withExistingParent("slop_bucket", "item/generated").texture("layer0", mcLoc("item/bucket"));
-            } else if (item.equals(AnimaniaItems.RANDOM_SPAWN_EGG.get())) {
-                withExistingParent("random_spawn_egg", "item/generated").texture("layer0", AnimaniaMod.getId("item/random_spawn_egg"));
+                createSimpleItem("slop_bucket", mcLoc("item/bucket"));
+            } else {
+                createSimpleItem(BuiltInRegistries.ITEM.getKey(item).getPath());
             }
         }
+    }
+
+    private void createSimpleItem(String name) {
+        createSimpleItem(name, AnimaniaMod.getId("item/" + name));
+    }
+
+    private void createSimpleItem(String name, ResourceLocation texture) {
+        withExistingParent(name, "item/generated").texture("layer0", texture);
     }
 }
