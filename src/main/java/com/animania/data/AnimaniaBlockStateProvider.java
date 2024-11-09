@@ -50,6 +50,6 @@ public class AnimaniaBlockStateProvider extends BlockStateProvider {
         ModelFile model = models().withExistingParent(name, mcLoc("block/cube_column"))
                 .texture("side", sideTexture)
                 .texture("end", bottomTexture);
-        directionalBlock(block, model);
+        horizontalBlock(block, model);
     }
 }

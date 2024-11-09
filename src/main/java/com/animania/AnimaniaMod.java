@@ -35,7 +35,9 @@ public class AnimaniaMod {
         AnimaniaFluids.FLUID_TYPES.register(modEventBus);
 
         if (FMLEnvironment.dist.isClient()) {
-            modEventBus.addListener(AnimaniaClientMod::initializeClient);
+            modEventBus.addListener(AnimaniaClientMod::registerClientExtensions);
+            modEventBus.addListener(AnimaniaClientMod::registerRenderers);
+            modEventBus.addListener(AnimaniaClientMod::registerLayerDefinitions);
         }
 
         modEventBus.addListener(AnimaniaDataGenerators::gatherData);
