@@ -25,6 +25,8 @@ public class AnimaniaItemModelProvider extends ItemModelProvider {
                     withExistingParent("salt_lick_block", "item/generated").texture("layer0", AnimaniaMod.getId("item/salt_lick"));
                 } else if (holder.equals(AnimaniaItems.TROUGH_BLOCK_ITEM)) {
                     withExistingParent("trough_block", "item/generated").texture("layer0", AnimaniaMod.getId("block/trough_block"));
+                } else if (holder.equals(AnimaniaItems.NEST_BLOCK_ITEM)) {
+                    withExistingParent("nest_block", "item/generated").texture("layer0", AnimaniaMod.getId("block/nest_block"));
                 } else {
                     simpleBlockItem(blockItem.getBlock());
                 }
