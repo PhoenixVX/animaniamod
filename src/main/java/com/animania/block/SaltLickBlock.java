@@ -46,16 +46,6 @@ public class SaltLickBlock extends BaseEntityBlock {
         return getVoxelShape(level, pos);
     }
 
-    @NotNull
-    private VoxelShape getVoxelShape(@NotNull BlockGetter level, @NotNull BlockPos pos) {
-        BlockEntity be = level.getBlockEntity(pos);
-        if (be instanceof SaltLickBlockEntity) {
-            double usesLeft = ((SaltLickBlockEntity) be).getUsesLeft() / (double) AnimaniaConfig.saltLickMaxUses;
-            return Shapes.box(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.625D * usesLeft, 0.8125D);
-        }
-        return SHAPE;
-    }
-
     @Override
     public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
         return new SaltLickBlockEntity(pos, state);
@@ -93,5 +83,16 @@ public class SaltLickBlock extends BaseEntityBlock {
             }
         }
         return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    // Utility methods
+    @NotNull
+    private VoxelShape getVoxelShape(@NotNull BlockGetter level, @NotNull BlockPos pos) {
+        BlockEntity be = level.getBlockEntity(pos);
+        if (be instanceof SaltLickBlockEntity) {
+            double usesLeft = ((SaltLickBlockEntity) be).getUsesLeft() / (double) AnimaniaConfig.saltLickMaxUses;
+            return Shapes.box(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.625D * usesLeft, 0.8125D);
+        }
+        return SHAPE;
     }
 }

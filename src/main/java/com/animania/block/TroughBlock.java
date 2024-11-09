@@ -64,6 +64,7 @@ public class TroughBlock extends BaseEntityBlock {
     }
 
     // Utility methods
+    @NotNull
     public VoxelShape getVoxelShape(@NotNull BlockState state) {
         return switch (state.getValue(FACING)) {
             case SOUTH -> SOUTH_SHAPE;
