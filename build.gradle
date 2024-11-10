@@ -16,6 +16,7 @@ allprojects {
     repositories {
         mavenLocal()
         maven { url 'https://maven.blamejared.com' }
+        maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
     }
 
     base {
@@ -118,6 +119,7 @@ subprojects {
         // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
         // http://www.gradle.org/docs/current/userguide/dependency_management.html
         implementation rootProject
+        implementation "software.bernie.geckolib:geckolib-neoforge-${project.minecraft_version}:4.7"
     }
 }
 

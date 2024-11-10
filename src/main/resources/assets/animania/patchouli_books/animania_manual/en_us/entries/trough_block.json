@@ -15,6 +15,10 @@
       "type": "patchouli:crafting",
       "title": "Trough Block",
       "recipe": "animania:trough_block"
+    },
+    {
+      "type": "patchouli:text",
+      "text": ""
     }
   ]
 }
