@@ -3,6 +3,7 @@ package com.animania;
 import com.animania.block.AnimaniaBlocks;
 import com.animania.block.entity.AnimaniaBlockEntityTypes;
 import com.animania.data.AnimaniaDataGenerators;
+import com.animania.entity.AnimaniaEntities;
 import com.animania.fluid.AnimaniaFluids;
 import com.animania.item.AnimaniaItems;
 import com.mojang.logging.LogUtils;
@@ -33,6 +34,7 @@ public class AnimaniaMod {
         AnimaniaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
         AnimaniaFluids.FLUIDS.register(modEventBus);
         AnimaniaFluids.FLUID_TYPES.register(modEventBus);
+        AnimaniaEntities.ENTITIES.register(modEventBus);
 
         if (FMLEnvironment.dist.isClient()) {
             modEventBus.addListener(AnimaniaClientMod::registerClientExtensions);
