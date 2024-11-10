@@ -3,5 +3,6 @@
   "landing_text": "Welcome to Animania!",
   "version": 1,
   "creative_tab": "animania:animania_resources",
-  "use_resource_pack": true
+  "use_resource_pack": true,
+  "model": "animania:manual"
 }

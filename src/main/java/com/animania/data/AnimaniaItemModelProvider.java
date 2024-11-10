@@ -34,6 +34,7 @@ public class AnimaniaItemModelProvider extends ItemModelProvider {
                 createSimpleItem(BuiltInRegistries.ITEM.getKey(item).getPath());
             }
         }
+        createSimpleItem("manual", AnimaniaMod.getId("item/manual"));
     }
 
     private void createSimpleItem(String name) {
