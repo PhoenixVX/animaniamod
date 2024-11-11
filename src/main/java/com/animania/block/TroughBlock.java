@@ -6,22 +6,20 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class TroughBlock extends BaseEntityBlock {
-    public static final DirectionProperty HORIZONTAL_FACING = BlockStateProperties.HORIZONTAL_FACING;
+public class TroughBlock extends HorizontalDirectionalBlock implements EntityBlock {
     public static final MapCodec<TroughBlock> CODEC = simpleCodec(TroughBlock::new);
 
     private static final VoxelShape NORTH_SHAPE = Shapes.box(0.0D, 0.0D, 0.25D, 2.0D, 0.3D, 0.75D);
@@ -31,17 +29,17 @@ public class TroughBlock extends BaseEntityBlock {
 
     public TroughBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(HORIZONTAL_FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
     @Override
-    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
+    protected @NotNull MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return CODEC;
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(HORIZONTAL_FACING);
+        builder.add(FACING);
     }
 
     @Override
@@ -66,7 +64,7 @@ public class TroughBlock extends BaseEntityBlock {
 
     @Override
     public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(HORIZONTAL_FACING, context.getHorizontalDirection());
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
     }
 
     @Override
@@ -77,7 +75,7 @@ public class TroughBlock extends BaseEntityBlock {
     // Utility methods
     @NotNull
     public VoxelShape getVoxelShape(@NotNull BlockState state) {
-        return switch (state.getValue(HORIZONTAL_FACING)) {
+        return switch (state.getValue(FACING)) {
             case SOUTH -> SOUTH_SHAPE;
             case WEST -> WEST_SHAPE;
             case EAST -> EAST_SHAPE;

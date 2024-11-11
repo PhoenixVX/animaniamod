@@ -33,7 +33,7 @@ public class TroughBlockEntityRenderer implements BlockEntityRenderer<TroughBloc
     @Override
     public void render(@NotNull TroughBlockEntity blockEntity, float partialTick, @NotNull PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         BlockState blockState = blockEntity.getBlockState();
-        Direction direction = blockState.getValue(TroughBlock.HORIZONTAL_FACING);
+        Direction direction = blockState.getValue(TroughBlock.FACING);
 
         poseStack.pushPose();
 
