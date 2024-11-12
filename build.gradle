@@ -1,13 +1,12 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '1.0.21' apply false
-    id 'com.diffplug.spotless' version '7.0.0.BETA4' apply false
+    id 'net.neoforged.moddev' version '1.0.21'
+    id 'com.diffplug.spotless' version '7.0.0.BETA4'
 }
 
 allprojects {
     apply plugin: 'java-library'
-    apply plugin: 'net.neoforged.moddev'
     apply plugin: 'com.diffplug.spotless'
 
     version = rootProject.mod_version
@@ -55,6 +54,8 @@ allprojects {
 }
 
 subprojects {
+    apply plugin: 'net.neoforged.moddev'
+
     neoForge {
         // Specify the version of NeoForge to use.
         version = rootProject.neo_version
@@ -72,8 +73,6 @@ subprojects {
         implementation rootProject
     }
 }
-
-apply plugin: 'net.neoforged.moddev'
 
 neoForge {
     // Specify the version of NeoForge to use.
