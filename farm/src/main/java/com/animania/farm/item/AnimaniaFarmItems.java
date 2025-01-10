@@ -2,11 +2,14 @@ package com.animania.farm.item;
 
 import com.animania.AnimaniaMod;
 import com.animania.farm.block.AnimaniaFarmBlocks;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class AnimaniaFarmItems {
@@ -21,11 +24,11 @@ public class AnimaniaFarmItems {
     public static final Supplier<Item> MERINO_WHITE_WOOL_BLOCK_ITEM = registerBlockItem("merino_white_wool", AnimaniaFarmBlocks.MERINO_WHITE_WOOL, new Item.Properties());
     public static final Supplier<Item> SUFFOLK_WOOL_BLOCK_ITEM = registerBlockItem("suffolk_wool", AnimaniaFarmBlocks.SUFFOLK_WOOL, new Item.Properties());
 
-    public static Supplier<Item> registerBlockItem(String name, Supplier<Block> block, Item.Properties properties) {
-        return registerItem(name, () -> new BlockItem(block.get(), properties));
+    public static Supplier<Item> registerBlockItem(String name, Supplier<Block> block, Item.Properties itemProperties) {
+        return registerItem(name, (properties) -> new BlockItem(block.get(), properties), itemProperties);
     }
 
-    public static Supplier<Item> registerItem(String name, Supplier<Item> item) {
-        return ITEMS.register(name, item);
+    private static Supplier<Item> registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
+        return ITEMS.register(name, () -> factory.apply(properties.setId(ResourceKey.create(Registries.ITEM, AnimaniaMod.getId(name)))));
     }
 }

@@ -1,29 +1,28 @@
 package com.animania.farm.data;
 
-import com.animania.AnimaniaMod;
 import com.animania.farm.item.AnimaniaFarmItems;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.PackOutput;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.ItemModelOutput;
+import net.minecraft.client.data.models.model.ModelInstance;
+import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
-public class AnimaniaFarmItemModelProvider extends ItemModelProvider {
-    public AnimaniaFarmItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, AnimaniaMod.MOD_ID, existingFileHelper);
+import java.util.function.BiConsumer;
+
+public class AnimaniaFarmItemModelProvider extends ItemModelGenerators {
+    public AnimaniaFarmItemModelProvider(ItemModelOutput itemModelOutput, BiConsumer<ResourceLocation, ModelInstance> modelOutput) {
+        super(itemModelOutput, modelOutput);
     }
 
     @Override
-    protected void registerModels() {
+    public void run() {
         for (DeferredHolder<Item, ? extends Item> entry : AnimaniaFarmItems.ITEMS.getEntries()) {
             Item item = entry.get();
-            String name = BuiltInRegistries.ITEM.getKey(item).getPath();
-            ResourceLocation defaultLocation = AnimaniaMod.getId(name);
             if (item instanceof BlockItem) {
-                withExistingParent(name, "item/generated").texture("layer0", defaultLocation);
+                generateFlatItem(item, ModelTemplates.FLAT_ITEM);
             }
         }
     }

@@ -79,7 +79,7 @@ public class NestBlockEntityRenderer implements BlockEntityRenderer<NestBlockEnt
         public final ModelPart fluff5;
 
         public NestModel(ModelPart root) {
-            super(RenderType::entityCutoutNoCull);
+            super(root, RenderType::entityCutoutNoCull);
             this.root = root;
 
             this.nest1 = this.root.getChild("nest1");
@@ -98,7 +98,7 @@ public class NestBlockEntityRenderer implements BlockEntityRenderer<NestBlockEnt
             this.fluff5 = this.root.getChild("fluff5");
         }
 
-        @Override
+        /*@Override
         public void renderToBuffer(@NotNull PoseStack poseStack, @NotNull VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
             this.nest1.render(poseStack, buffer, packedLight, packedOverlay, color);
             this.fluff3.render(poseStack, buffer, packedLight, packedOverlay, color);
@@ -114,6 +114,6 @@ public class NestBlockEntityRenderer implements BlockEntityRenderer<NestBlockEnt
             this.fluff2.render(poseStack, buffer, packedLight, packedOverlay, color);
             this.fluff4.render(poseStack, buffer, packedLight, packedOverlay, color);
             this.fluff5.render(poseStack, buffer, packedLight, packedOverlay, color);
-        }
+        }*/
     }
 }

@@ -108,7 +108,7 @@ public class TroughBlockEntityRenderer implements BlockEntityRenderer<TroughBloc
         private final ModelPart water3;*/
 
         public TroughModel(ModelPart root) {
-            super(RenderType::entityCutoutNoCull);
+            super(root, RenderType::entityCutoutNoCull);
             this.root = root;
             this.block1 = root.getChild("block1");
             this.base2 = root.getChild("base2");
@@ -142,7 +142,7 @@ public class TroughBlockEntityRenderer implements BlockEntityRenderer<TroughBloc
             this.water3 = root.getChild("water3");*/
         }
 
-        @Override
+        /*@Override
         public void renderToBuffer(@NotNull PoseStack poseStack, @NotNull VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
             this.block1.render(poseStack, buffer, packedLight, packedOverlay);
             this.block2.render(poseStack, buffer, packedLight, packedOverlay);
@@ -151,6 +151,6 @@ public class TroughBlockEntityRenderer implements BlockEntityRenderer<TroughBloc
             this.block5.render(poseStack, buffer, packedLight, packedOverlay);
             this.base1.render(poseStack, buffer, packedLight, packedOverlay);
             this.base2.render(poseStack, buffer, packedLight, packedOverlay);
-        }
+        }*/
     }
 }

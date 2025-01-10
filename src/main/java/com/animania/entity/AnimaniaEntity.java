@@ -5,6 +5,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.ItemStack;
@@ -43,7 +44,7 @@ public class AnimaniaEntity extends Animal {
                 // This is a safe cast as all AnimaniaEntity instances should extend from
                 // Animal which extends AgeableMob in the hierarchy
                 if (entityType.getBaseClass().isAssignableFrom(AgeableMob.class)) {
-                    return (AgeableMob) entityType.create(level);
+                    return (AgeableMob) entityType.create(level, EntitySpawnReason.BREEDING);
                 }
             }
         }
